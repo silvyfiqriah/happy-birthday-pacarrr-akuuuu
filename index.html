@@ -68,11 +68,18 @@ background:#c1121f;
 color:white;
 font-size:18px;
 cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+background:#e63946;
 }
 
 .heart{
 position:absolute;
 animation:fall linear infinite;
+pointer-events:none;
 }
 
 @keyframes fall{
@@ -90,6 +97,11 @@ opacity:0;
 </head>
 
 <body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <div class="hero">
 
@@ -113,29 +125,58 @@ Click Here
 
 </div>
 
-<audio autoplay loop>
-<source src="riskitall.mp3" type="audio/mpeg">
-</audio>
-
 <script>
+
+// ================= HEART =================
 
 for(let i=0;i<50;i++){
 
-let heart=document.createElement("div");
+    let heart=document.createElement("div");
 
-heart.className="heart";
+    heart.className="heart";
 
-heart.innerHTML="❤️";
+    heart.innerHTML="❤️";
 
-heart.style.left=Math.random()*100+"vw";
+    heart.style.left=Math.random()*100+"vw";
 
-heart.style.fontSize=(15+Math.random()*20)+"px";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
 
-heart.style.animationDuration=(5+Math.random()*5)+"s";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
 
-document.body.appendChild(heart);
+    document.body.appendChild(heart);
 
 }
+
+
+// ================= MUSIC =================
+
+const music = document.getElementById("bgMusic");
+
+// Ambil posisi lagu sebelumnya
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = savedTime;
+}
+
+// Mainkan musik saat klik pertama
+document.addEventListener("click", () => {
+
+    if(music.paused){
+        music.play();
+    }
+
+}, { once:true });
+
+// Simpan posisi lagu setiap detik
+setInterval(() => {
+
+    localStorage.setItem(
+        "musicTime",
+        music.currentTime
+    );
+
+}, 1000);
 
 </script>
 
