@@ -12,21 +12,24 @@ body{
 margin:0;
 padding:0;
 height:100vh;
-background:#b3001b;
+background:linear-gradient(135deg,#8b0000,#c1121f,#ff4d6d);
 display:flex;
 justify-content:center;
 align-items:center;
 font-family:Poppins,sans-serif;
 color:white;
+overflow:hidden;
 }
 
 .container{
 text-align:center;
+z-index:2;
 }
 
 h1{
 font-size:50px;
 margin-bottom:50px;
+text-shadow:0 0 15px rgba(255,255,255,0.5);
 }
 
 .menu{
@@ -39,7 +42,8 @@ flex-wrap:wrap;
 .card{
 width:180px;
 height:180px;
-background:white;
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(10px);
 border-radius:20px;
 cursor:pointer;
 transition:0.3s;
@@ -50,10 +54,12 @@ align-items:center;
 color:black;
 font-size:20px;
 font-weight:bold;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .card:hover{
 transform:scale(1.08);
+box-shadow:0 15px 40px rgba(255,255,255,0.3);
 }
 
 .icon{
@@ -65,6 +71,11 @@ margin-bottom:10px;
 </head>
 
 <body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container">
 
@@ -90,6 +101,40 @@ Cake
 </div>
 
 </div>
+
+<script>
+
+// ================= MUSIC =================
+
+const music = document.getElementById("bgMusic");
+
+// Ambil posisi lagu sebelumnya
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = savedTime;
+}
+
+// Mainkan musik saat klik pertama
+document.addEventListener("click", () => {
+
+    if(music.paused){
+        music.play();
+    }
+
+}, { once:true });
+
+// Simpan posisi lagu tiap detik
+setInterval(() => {
+
+    localStorage.setItem(
+        "musicTime",
+        music.currentTime
+    );
+
+}, 1000);
+
+</script>
 
 </body>
 </html>
