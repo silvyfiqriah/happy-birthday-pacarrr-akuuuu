@@ -1,105 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<title>Happy Birthday ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ridwan ❤️</title>
+
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
 body{
-background:#0f0f0f;
-color:white;
-font-family:Arial,sans-serif;
+overflow:hidden;
+}
+
+.hero{
+height:100vh;
+background:url('foto1.jpeg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:50px;
+position:relative;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+}
+
+.content{
+position:relative;
+z-index:2;
+color:white;
+padding:20px;
 }
 
 h1{
-color:#ff2d55;
-font-size:50px;
+font-size:60px;
+margin-bottom:10px;
 }
 
-.card{
-max-width:700px;
-margin:auto;
-padding:30px;
-border:2px solid #ff2d55;
-border-radius:20px;
-background:#1a1a1a;
+h2{
+font-size:35px;
+color:#ffcccc;
+margin-bottom:20px;
 }
 
-button{
-background:#ff2d55;
-color:white;
-padding:15px 30px;
+p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.btn{
+padding:15px 35px;
 border:none;
-border-radius:10px;
+border-radius:30px;
+background:#c1121f;
+color:white;
 font-size:18px;
 cursor:pointer;
 }
 
-button:hover{
-transform:scale(1.05);
+.heart{
+position:absolute;
+animation:fall linear infinite;
 }
 
-#pesan{
-display:none;
-margin-top:20px;
-font-size:20px;
+@keyframes fall{
+0%{
+transform:translateY(-100px);
+opacity:1;
 }
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="hero">
 
-<h1>❤️ Happy Birthday ❤️</h1>
+<div class="overlay"></div>
 
-<h2>RIDWAN MASHURI</h2>
+<div class="content">
+
+<h1>Happy Birthday ❤️</h1>
+
+<h2>Ridwan Mashuri</h2>
 
 <p>
-Happy birthday, my love. You are one of the most beautiful parts of my life.
-May your journey ahead be filled with peace and growth, and may all your wishes come true. I am grateful to have you.
+A little gift made with love just for you.
 </p>
 
-<button onclick="document.getElementById('pesan').style.display='block'">
-Buka Pesan Rahasia ❤️
+<button class="btn" onclick="window.location.href='menu.html'">
+Click Here
 </button>
 
-<div id="pesan">
-<p>
-Untuk Ridwan ❤️
-Selamat ulang tahun ya sayang. 🎂❤️
-Aku ga jago ngerangkai kata-kata yang bagus, tapi di hari spesial kamu ini aku cuma mau jujur soal apa yang aku rasain.
-Aku bersyukur banget bisa ketemu kamu. Dari sekian banyak orang, aku ga nyangka bisa punya kamu di hidup aku.
-Sejak ada kamu, hidup aku jadi jauh lebih bahagia. Hari-hari yang biasa aja jadi terasa lebih seru. Hal-hal kecil yang kita jalanin bareng juga selalu jadi sesuatu yang aku inget terus.
-Kamu tau ga?
-Kamu itu banyak “yang pertama” di hidup aku. First experience aku dalam banyak hal, dan aku seneng banget karena semuanya aku lewatin sama kamu.
-Makasih ya, karena selalu ada buat aku. Selalu sabar ngadepin aku, dengerin cerita aku, nenangin aku pas aku lagi sedih, dan tetep bertahan walaupun aku ga selalu gampang dimengerti.
-Kamu juga pelan-pelan nyembuhin luka aku di masa lalu. Luka yang dulu bikin aku takut buat percaya lagi atau buka hati lagi.
-Tapi kamu datang dan buktiin kalau ga semua orang bakal nyakitin.
-Aku juga ga akan lupa semua hal yang kamu lakuin buat aku. Dari hal besar sampai hal kecil yang mungkin menurut kamu biasa aja.
-Makasih karena selalu anter jemput aku kuliah. Kelihatannya sepele, tapi buat aku itu bentuk perhatian yang bikin aku ngerasa disayang dan dijaga.
-Aku selalu ngerasa tenang kalau ada kamu.
-Aku selalu ngerasa nyaman kalau sama kamu.
-Dan jujur, salah satu hal terbaik yang pernah terjadi di hidup aku adalah punya kamu.
-Aku tau ga ada orang yang sempurna. Tapi di mata aku, kamu tetap spesial banget.
-Aku tetap milih kamu, dengan semua kelebihan dan kekurangan kamu.
-Hari ini, besok, dan semoga untuk waktu yang lama.
-Di ulang tahun kamu ini, aku cuma berharap kamu selalu sehat, selalu bahagia, semua impian kamu tercapai, dan hal-hal baik selalu datang ke hidup kamu.
-Kalau Tuhan ngizinin, aku pengen terus ada di samping kamu.
-Nemenin kamu tumbuh.
-Nemenin kamu ngejar mimpi-mimpi kamu.
-Dan nemenin semua cerita kita ke depan.
-Aku masih pengen ketawa sama kamu.
-Aku masih pengen ngerayain ulang tahun kamu berikutnya.
-Dan aku masih pengen pulang ke orang yang sama, yaitu kamu.
-Selamat ulang tahun ya sayang ❤️
-Makasii karena udah jadi rumah paling nyaman buat aku.
-Aku sayang kamu, lebih dari yang bisa aku jelasin lewat kata-kata. 🤍
-
-</p>
 </div>
 
 </div>
+
+<audio autoplay loop>
+<source src="riskitall.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+for(let i=0;i<50;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(15+Math.random()*20)+"px";
+
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+}
+
+</script>
 
 </body>
 </html>
