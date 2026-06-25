@@ -1,108 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Birthday Cake</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to top, #ffdde1, #ee9ca7);
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Cake ❤️</title>
 
-    .card {
-      text-align: center;
-    }
+<style>
 
-    .cake {
-      position: relative;
-      width: 200px;
-      height: 180px;
-      margin: auto;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-    /* cake base */
-    .layer {
-      position: absolute;
-      width: 200px;
-      height: 60px;
-      background: #ff6f91;
-      border-radius: 10px;
-      bottom: 0;
-    }
+body{
+    overflow:hidden;
+    height:100vh;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
 
-    .layer2 {
-      width: 160px;
-      height: 50px;
-      background: #ff9671;
-      bottom: 60px;
-      left: 20px;
-    }
+.container{
+    text-align:center;
+}
 
-    .layer3 {
-      width: 120px;
-      height: 45px;
-      background: #ffc75f;
-      bottom: 110px;
-      left: 40px;
-    }
+.title{
+    color:white;
+    font-size:42px;
+    margin-bottom:50px;
+    text-shadow:0 0 20px rgba(255,255,255,.8);
+}
 
-    /* candles */
-    .candle {
-      position: absolute;
-      width: 10px;
-      height: 30px;
-      background: white;
-      top: 20px;
-      left: 95px;
-    }
+.cake{
+    position:relative;
+    width:300px;
+    height:300px;
+}
 
-    .flame {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: orange;
-      border-radius: 50%;
-      top: -10px;
-      left: -1px;
-      animation: flicker 0.3s infinite alternate;
-    }
+/* Layer 1 */
+.layer1{
+    position:absolute;
+    width:300px;
+    height:90px;
+    background:linear-gradient(#ff5c8d,#ff8fab);
+    bottom:0;
+    border-radius:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
 
-    @keyframes flicker {
-      from { transform: scale(1); opacity: 1; }
-      to { transform: scale(1.3); opacity: 0.7; }
-    }
+/* Layer 2 */
+.layer2{
+    position:absolute;
+    width:220px;
+    height:80px;
+    background:linear-gradient(#ff85a1,#ffb3c1);
+    bottom:90px;
+    left:40px;
+    border-radius:20px;
+}
 
-    h1 {
-      margin-top: 20px;
-      color: white;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
+/* Layer 3 */
+.layer3{
+    position:absolute;
+    width:150px;
+    height:70px;
+    background:linear-gradient(#ffc2d1,#ffe5ec);
+    bottom:170px;
+    left:75px;
+    border-radius:20px;
+}
 
-    p {
-      color: white;
-    }
-  </style>
+/* Cream */
+.cream{
+    position:absolute;
+    width:100%;
+    height:15px;
+    background:white;
+    border-radius:50px;
+    top:0;
+}
+
+/* Candle */
+.candle{
+    position:absolute;
+    width:12px;
+    height:60px;
+    background:white;
+    left:144px;
+    top:40px;
+    border-radius:5px;
+}
+
+/* Flame */
+.flame{
+    position:absolute;
+    width:18px;
+    height:30px;
+    background:gold;
+    border-radius:50% 50% 50% 50%;
+    top:-28px;
+    left:-3px;
+    box-shadow:0 0 30px orange;
+    animation:flicker .2s infinite alternate;
+}
+
+@keyframes flicker{
+
+from{
+transform:scale(1);
+opacity:1;
+}
+
+to{
+transform:scale(1.1);
+opacity:.8;
+}
+
+}
+
+button{
+
+margin-top:50px;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+font-size:18px;
+background:white;
+color:#ff4d88;
+cursor:pointer;
+font-weight:bold;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.1);
+
+}
+
+.message{
+
+margin-top:30px;
+font-size:30px;
+color:white;
+display:none;
+animation:fade 1s;
+
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Confetti */
+
+.confetti{
+
+position:absolute;
+width:10px;
+height:10px;
+top:-20px;
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(100vh) rotate(720deg);
+
+}
+
+}
+
+</style>
 </head>
 
 <body>
-  <div class="card">
-    <div class="cake">
-      <div class="layer layer3"></div>
-      <div class="layer layer2"></div>
-      <div class="layer"></div>
 
-      <div class="candle">
-        <div class="flame"></div>
-      </div>
-    </div>
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <h1>🎂 Happy Birthday My Love 🎂</h1>
-    <p>You are my everything ❤️</p>
-  </div>
+<div class="container">
+
+<h1 class="title">Happy Birthday My Love ❤️</h1>
+
+<div class="cake">
+
+<div class="layer1">
+<div class="cream"></div>
+</div>
+
+<div class="layer2">
+<div class="cream"></div>
+</div>
+
+<div class="layer3">
+<div class="cream"></div>
+</div>
+
+<div class="candle">
+<div class="flame" id="flame"></div>
+</div>
+
+</div>
+
+<button onclick="blowCandle()">
+🎂 Blow The Candle
+</button>
+
+<div class="message" id="message">
+Make A Wish 💖✨
+</div>
+
+</div>
+
+<script>
+
+document.body.addEventListener("click",()=>{
+
+document.getElementById("music").play();
+
+},{once:true})
+
+function blowCandle(){
+
+document.getElementById("flame").style.display="none";
+
+document.getElementById("message").style.display="block";
+
+confetti();
+
+}
+
+function confetti(){
+
+for(let i=0;i<150;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*window.innerWidth+"px";
+
+c.style.background=
+`hsl(${Math.random()*360},100%,50%)`;
+
+c.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},5000);
+
+}
+
+}
+
+</script>
+
 </body>
 </html>
