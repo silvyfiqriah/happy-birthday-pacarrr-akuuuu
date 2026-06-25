@@ -1,127 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Cake ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+linear-gradient(
+135deg,
+#ff758c,
+#ff7eb3,
+#ffc2d1
+);
+
+font-family:
+'Cormorant Garamond',
+serif;
+
+}
+
+/* CONTAINER */
+
+.container{
+
+text-align:center;
+
+}
+
+/* TITLE */
+
+.title{
+
+font-family:
+'Dancing Script',
+cursive;
+
+font-size:65px;
+
+color:white;
+
+margin-bottom:40px;
+
+text-shadow:
+0 0 20px rgba(255,255,255,.6);
+
+}
+
+/* CAKE */
+
+.cake{
+
+position:relative;
+
+width:320px;
+height:320px;
+
+transform-style:preserve-3d;
+
+animation:
+floating 3s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%,100%{
+
+transform:
+translateY(0px)
+rotateY(-8deg);
+
+}
+
+50%{
+
+transform:
+translateY(-15px)
+rotateY(8deg);
+
+}
+
+}
+
+/* BOTTOM LAYER */
+
+.layer1{
+
+position:absolute;
+
+bottom:0;
+
+width:320px;
+height:100px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+to right,
+#ff4d88,
+#ff85a1,
+#ff4d88
+);
+
+box-shadow:
+
+0 20px 40px rgba(0,0,0,.25),
+inset 0 -10px 20px rgba(0,0,0,.2);
+
+}
+
+/* MIDDLE */
+
+.layer2{
+
+position:absolute;
+
+bottom:95px;
+left:45px;
+
+width:230px;
+height:85px;
+
+border-radius:25px;
+
+background:
+linear-gradient(
+to right,
+#ff85a1,
+#ffc2d1,
+#ff85a1
+);
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.2);
+
+}
+
+/* TOP */
+
+.layer3{
+
+position:absolute;
+
+bottom:175px;
+left:85px;
+
+width:150px;
+height:75px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+to right,
+#ffe5ec,
+white,
+#ffe5ec
+);
+
+box-shadow:
+0 10px 20px rgba(0,0,0,.2);
+
+}
+
+/* CREAM */
+
+.cream{
+
+position:absolute;
+
+top:0;
+
+width:100%;
+height:15px;
+
+background:white;
+
+border-radius:50px;
+
+}
+
+/* CANDLE */
+
+.candle{
+
+position:absolute;
+
+top:35px;
+left:153px;
+
+width:14px;
+height:70px;
+
+border-radius:10px;
+
+background:
+
+repeating-linear-gradient(
+
+45deg,
+
+white,
+white 8px,
+
+#ff85a1 8px,
+#ff85a1 16px
+
+);
+
+}
+
+/* FLAME */
+
+.flame{
+
+position:absolute;
+
+top:-35px;
+left:-4px;
+
+width:22px;
+height:35px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+#fff176,
+orange,
+red
+
+);
+
+border-radius:
+
+50% 50% 40% 40%;
+
+box-shadow:
+
+0 0 20px gold,
+0 0 40px orange,
+0 0 60px red;
+
+animation:
+flicker .15s infinite alternate;
+
+}
+
+@keyframes flicker{
+
+from{
+
+transform:scale(1);
+
+}
+
+to{
+
+transform:scale(1.1);
+
+}
+
+}
+
+/* BUTTON */
+
+button{
+
+margin-top:60px;
+
+padding:
+
+18px 45px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:20px;
+
+background:
+
+linear-gradient(
+45deg,
+#ff4d88,
+#ff85a1
+);
+
+color:white;
+
+cursor:pointer;
+
+font-weight:bold;
+
+box-shadow:
+
+0 10px 30px rgba(255,0,100,.4);
+
+transition:.4s;
+
+}
+
+button:hover{
+
+transform:
+
+translateY(-5px)
+scale(1.05);
+
+}
+
+/* MESSAGE */
+
+.message{
+
+display:none;
+
+margin-top:30px;
+
+font-size:40px;
+
+font-family:
+
+'Dancing Script',
+cursive;
+
+color:white;
+
+text-shadow:
+
+0 0 20px white;
+
+animation:
+fade 1.5s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+
+/* CONFETTI */
+
+.confetti{
+
+position:absolute;
+
+width:12px;
+height:12px;
+
+top:-20px;
+
+animation:
+fall linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:
+
+translateY(100vh)
+rotate(720deg);
+
+}
+
+}
+
+</style>
+</head>
+
 <body>
 
+<!-- MUSIC -->
 <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
 
-<h1 class="title">Happy Birthday My Love ❤️</h1>
+<h1 class="title">
+Happy Birthday My Love ❤️
+</h1>
 
 <div class="cake">
 
-    <div class="layer1">
-        <div class="cream"></div>
-    </div>
+<div class="layer1">
+<div class="cream"></div>
+</div>
 
-    <div class="layer2">
-        <div class="cream"></div>
-    </div>
+<div class="layer2">
+<div class="cream"></div>
+</div>
 
-    <div class="layer3">
-        <div class="cream"></div>
-    </div>
+<div class="layer3">
+<div class="cream"></div>
+</div>
 
-    <div class="candle">
-        <div class="flame" id="flame"></div>
-    </div>
+<div class="candle">
+<div class="flame" id="flame"></div>
+</div>
 
 </div>
 
 <button onclick="blowCandle()">
-    🎂 Blow The Candle
+✨ Make A Wish ✨
 </button>
 
 <div class="message" id="message">
-    Make A Wish 💖✨
+
+🌟 Happy Birthday 🌟
+
+<br><br>
+
+May all your dreams
+come true ❤️
+
 </div>
 
 </div>
 
 <script>
 
-// ================= MUSIC =================
+/* MUSIC */
 
-const music = document.getElementById("bgMusic");
+const music =
+document.getElementById("bgMusic");
 
-// Ambil posisi lagu sebelumnya
-const savedTime = localStorage.getItem("musicTime");
+const savedTime =
+localStorage.getItem("musicTime");
 
 if(savedTime){
-    music.currentTime = savedTime;
+
+music.currentTime =
+savedTime;
+
 }
 
-// Mainkan musik saat klik pertama
-document.addEventListener("click", () => {
+document.addEventListener(
 
-    if(music.paused){
-        music.play();
-    }
+"click",
 
-}, { once:true });
+()=>{
 
-// Simpan posisi lagu tiap detik
-setInterval(() => {
+if(music.paused){
 
-    localStorage.setItem(
-        "musicTime",
-        music.currentTime
-    );
+music.play();
 
-}, 1000);
+}
+
+},
+
+{once:true}
+
+);
+
+setInterval(()=>{
+
+localStorage.setItem(
+
+"musicTime",
+
+music.currentTime
+
+);
+
+},1000);
 
 
-// ================= CAKE =================
+/* CAKE */
 
 function blowCandle(){
 
-    document.getElementById("flame").style.display = "none";
+document
+.getElementById("flame")
+.style.display="none";
 
-    document.getElementById("message").style.display = "block";
+document
+.getElementById("message")
+.style.display="block";
 
-    confetti();
+confetti();
 
-    // Pindah ke halaman message setelah 4 detik
-    setTimeout(() => {
+setTimeout(()=>{
 
-        window.location.href = "message.html";
+window.location.href=
+"message.html";
 
-    }, 4000);
+},5000);
 
 }
 
 
-// ================= CONFETTI =================
+/* CONFETTI */
 
 function confetti(){
 
-    for(let i = 0; i < 150; i++){
+for(let i=0;i<200;i++){
 
-        let c = document.createElement("div");
+let c=
+document.createElement("div");
 
-        c.className = "confetti";
+c.className=
+"confetti";
 
-        c.style.left =
-        Math.random() * window.innerWidth + "px";
+c.style.left=
+Math.random()*
+window.innerWidth
++"px";
 
-        c.style.background =
-        `hsl(${Math.random()*360},100%,50%)`;
+c.style.background=
 
-        c.style.animationDuration =
-        (Math.random()*3+2) + "s";
+`hsl(${
+Math.random()*360
+},100%,50%)`;
 
-        document.body.appendChild(c);
+c.style.animationDuration=
 
-        setTimeout(() => {
+(Math.random()*3+2)
++"s";
 
-            c.remove();
+document.body
+.appendChild(c);
 
-        }, 5000);
+setTimeout(()=>{
 
-    }
+c.remove();
+
+},5000);
+
+}
 
 }
 
 </script>
 
 </body>
+</html>
