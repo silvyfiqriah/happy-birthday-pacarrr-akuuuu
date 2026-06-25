@@ -194,6 +194,9 @@ transform:translateY(100vh) rotate(720deg);
 </head>
 
 <body>
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <audio id="music" loop>
 <source src="music.mp3" type="audio/mpeg">
@@ -281,5 +284,27 @@ c.remove();
 
 </script>
 
+<script>
+const music = document.getElementById("bgMusic");
+
+// Ambil posisi terakhir lagu
+const savedTime = localStorage.getItem("musicTime");
+
+if (savedTime) {
+    music.currentTime = savedTime;
+}
+
+// Mainkan musik saat user klik pertama kali
+document.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+    }
+}, { once: true });
+
+// Simpan posisi lagu setiap 1 detik
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
 </body>
 </html>
