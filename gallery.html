@@ -2,42 +2,99 @@
 <html>
 <head>
 <title>Gallery ❤️</title>
+
 <style>
+
 body{
-background:#b3001b;
-font-family:sans-serif;
-text-align:center;
-color:white;
+    background:linear-gradient(135deg,#b3001b,#ff4d6d);
+    font-family:sans-serif;
+    text-align:center;
+    color:white;
+    margin:0;
+    padding:20px;
+}
+
+h1{
+    margin-bottom:30px;
+    text-shadow:0 0 10px rgba(255,255,255,0.5);
 }
 
 .gallery{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-padding:20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    max-width:800px;
+    margin:auto;
 }
 
 .gallery img{
-width:100%;
-border-radius:15px;
+    width:100%;
+    border-radius:15px;
+    transition:0.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
 </style>
+
 </head>
 
 <body>
 
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <h1>Our Memories ❤️</h1>
 
 <div class="gallery">
-<img src="foto1.jpeg">
-<img src="foto2.jpeg">
-<img src="foto3.jpeg">
-<img src="foto4.jpeg">
-<img src="foto5.jpeg">
-<img src="foto6.jpeg">
-<img src="foto7.jpeg">
-<img src="foto8.jpeg">
+    <img src="foto1.jpeg">
+    <img src="foto2.jpeg">
+    <img src="foto3.jpeg">
+    <img src="foto4.jpeg">
+    <img src="foto5.jpeg">
+    <img src="foto6.jpeg">
+    <img src="foto7.jpeg">
+    <img src="foto8.jpeg">
 </div>
+
+<script>
+
+// ================= MUSIC =================
+
+const music = document.getElementById("bgMusic");
+
+// Ambil posisi lagu terakhir
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = savedTime;
+}
+
+// Mainkan musik saat klik pertama
+document.addEventListener("click", () => {
+
+    if(music.paused){
+        music.play();
+    }
+
+}, { once:true });
+
+// Simpan posisi lagu setiap detik
+setInterval(() => {
+
+    localStorage.setItem(
+        "musicTime",
+        music.currentTime
+    );
+
+}, 1000);
+
+</script>
 
 </body>
 </html>
